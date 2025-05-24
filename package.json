@@ -1,5 +1,5 @@
 {
-  "name": "ai-human-workspace",
+  "name": "gemini-collaborative-workspace",
   "version": "1.0.0",
   "description": "A collaborative workspace for AI and human interaction",
   "main": "server/index.js",
@@ -9,18 +9,15 @@
     "client": "cd client && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "install-all": "npm install && cd client && npm install",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run install-all && npm run build"
   },
   "keywords": [
-    "ai",
+    "gemini",
     "collaboration",
     "workspace",
     "react",
     "node"
   ],
-  "author": "",
-  "license": "MIT",
+  "author": "Wali Ahmed",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
