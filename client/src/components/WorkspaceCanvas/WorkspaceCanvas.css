@@ -1,0 +1,337 @@
+/* Main workspace canvas container */
+.workspace-canvas-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--color-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  min-height: 0; /* Critical for proper flex behavior */
+}
+
+/* Format toolbar - fixed height */
+.format-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-card);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-shrink: 0; /* Prevent toolbar from shrinking */
+}
+
+.format-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  min-width: 2rem;
+  position: relative;
+}
+
+.format-button:hover {
+  background-color: var(--color-hover);
+}
+
+/* Active state for format buttons */
+.format-button-active {
+  background-color: #b0e2ff !important;
+  color: #000000 !important;
+  box-shadow: 0 2px 4px rgba(87, 98, 219, 0.3);
+  border-radius: 35px;
+}
+
+.format-button-active:hover {
+  background-color: rgb(255, 155, 155) !important;
+  color: rgb(0, 0, 0) !important;
+}
+
+/* Special styling for active text formatting buttons */
+.format-button-active strong,
+.format-button-active em,
+.format-button-active u {
+  color: white;
+}
+
+.format-divider {
+  width: 1px;
+  height: 1.5rem;
+  background-color: var(--color-border);
+  margin: 0 0.5rem;
+}
+
+.ai-edit-button {
+  color: var(--color-primary);
+  font-weight: 500;
+  margin-left: 0.5rem;
+  white-space: nowrap;
+}
+
+.ai-edit-button:hover {
+  background-color: rgba(87, 98, 219, 0.1);
+}
+
+/* Main editor - takes remaining space */
+.workspace-editor {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  outline: none;
+  font-size: 1rem;
+  line-height: 1.6;
+  direction: ltr;
+  min-height: 0; /* Allow editor to shrink properly */
+
+  /* Text editing properties */
+  unicode-bidi: plaintext;
+  text-align: left;
+  caret-color: black;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Remove any conflicting height settings */
+.workspace-editor {
+  /* Remove any min-height that might cause empty space */
+  height: auto;
+  max-height: none;
+}
+
+/* Typography styles */
+.workspace-editor h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.workspace-editor h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+.workspace-editor h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+.workspace-editor p {
+  margin-bottom: 1rem;
+}
+
+.workspace-editor ul,
+.workspace-editor ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.workspace-editor li {
+  margin-bottom: 0.5rem;
+}
+
+/* Footer - fixed height */
+.workspace-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-card);
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+  flex-shrink: 0; /* Prevent footer from shrinking */
+}
+
+.word-count,
+.selection-count {
+  display: flex;
+  align-items: center;
+}
+
+.selection-count {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+/* Empty state styling */
+.workspace-editor.empty::before {
+  content: attr(data-placeholder);
+  color: #9ca3af;
+  font-style: italic;
+  pointer-events: none;
+  position: absolute;
+  opacity: 0.7;
+}
+
+.workspace-editor.empty:focus::before {
+  display: none;
+}
+
+/* AI prompt panel */
+.ai-prompt-panel {
+  background: #f8f9fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0; /* Prevent panel from shrinking */
+}
+
+.ai-prompt-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ai-prompt-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.ai-prompt-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.ai-prompt-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+/* Button styles */
+.button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.button-ghost {
+  background: transparent;
+  color: #6b7280;
+  border: 1px solid #d1d5db;
+}
+
+.button-ghost:hover:not(:disabled) {
+  background-color: #f9fafb;
+}
+
+.button-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.button-primary:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.button-primary:disabled,
+.button-ghost:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Custom scrollbar for editor */
+.workspace-editor::-webkit-scrollbar {
+  width: 8px;
+}
+
+.workspace-editor::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.workspace-editor::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.workspace-editor::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Focus styles */
+.workspace-editor:focus {
+  box-shadow: inset 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+/* Parent container fixes to prevent empty space */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.workspace-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.workspace-main {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.workspace-body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .workspace-editor {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .format-toolbar {
+    padding: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .format-button {
+    padding: 0.375rem;
+    min-width: 1.75rem;
+    font-size: 0.8rem;
+  }
+
+  .workspace-footer {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}

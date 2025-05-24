@@ -1,0 +1,156 @@
+.workspace-progress {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Progress Summary Component */
+.progress-summary {
+  flex: 1;
+  background-color: white;
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.progress-summary h4 {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+  color: var(--color-heading);
+}
+
+.summary-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.stat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(87, 98, 219, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+.stat-value {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--color-heading);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.collaboration-tips {
+  background-color: rgba(81, 197, 176, 0.1);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+}
+
+.collaboration-tips h5 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--color-secondary-dark);
+  display: flex;
+  align-items: center;
+}
+
+.collaboration-tips p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+/* Contribution Chart Component */
+.contribution-chart {
+  width: 250px;
+  background-color: white;
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.contribution-chart h4 {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+  color: var(--color-heading);
+  text-align: center;
+}
+
+.chart-container {
+  position: relative;
+  height: 150px;
+  margin-bottom: 1rem;
+}
+
+.chart-center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.center-percentage {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.center-label {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+.chart-legend {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.human-color {
+  background-color: #51c5b0;
+}
+
+.ai-color {
+  background-color: #5762db;
+}
+
+.legend-label {
+  font-size: 0.85rem;
+  color: var(--color-text);
+}
+
+.legend-value {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-heading);
+}

@@ -1,0 +1,108 @@
+.app-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* FIXED: Remove padding-top since TopBar is in normal document flow */
+.main-content {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  min-height: 0; /* Critical for flexbox to work properly */
+  overflow: hidden;
+  width: 100%;
+  /* REMOVED: padding-top: 65px; - This was causing the double offset */
+}
+
+.main-content-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: auto; /* Allow scrolling if content overflows */
+  background-color: var(--color-background);
+  min-width: 0; /* Allow proper shrinking */
+  width: 100%;
+  /* FIXED: Use full available height without extra calculation */
+  height: 100%;
+}
+
+.page-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* Critical for nested flex containers */
+  width: 100%;
+  height: 100%;
+}
+
+/* Dashboard-specific fixes */
+.dashboard-container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto; /* Enable scrolling within dashboard */
+  flex: 1;
+  display: block;
+}
+
+/* ProjectWorkspace fixes */
+.workspace {
+  display: flex;
+  flex: 1;
+  height: 100%; /* Use full available height */
+  overflow: hidden;
+  width: 100%;
+}
+
+.workspace-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.workspace-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 16px 24px 24px 24px;
+  min-height: 0;
+  overflow: hidden;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  /* REMOVED: Fixed minimum height that was causing layout issues */
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 64px; /* Keep this for mobile overlay positioning */
+    left: 0;
+    height: calc(100vh - 64px);
+    z-index: 200;
+    transform: translateX(-100%);
+  }
+
+  .sidebar.sidebar-open {
+    transform: translateX(0);
+  }
+
+  .main-content-area {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .dashboard-container {
+    padding: 1rem;
+    height: 100%;
+  }
+}
