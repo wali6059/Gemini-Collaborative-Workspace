@@ -1,9 +1,6 @@
 # Gemini-Collaborative-Workspace
 
 A collaborative platform that seamlessly integrates human creativity with AI assistance for content creation, editing, and project management. Built with React, Node.js, MongoDB, and Google's Gemini AI.
-# Gemini-Collaborative-Workspace
-
-A collaborative platform that seamlessly integrates human creativity with AI assistance for content creation, editing, and project management. Built with React, Node.js, MongoDB, and Google's Gemini AI.
 
 ## Demo Video
 
